@@ -11,7 +11,7 @@
 
 <b>3)</b> Зайти в созданный пакет target и выполнить команду: java -jar webservice-0.0.1-SNAPSHOT.jar
 <p>(Примечание: Приложение прослушивает порт 8080, поэтому нужно закрыть приложение, которое использует этот порт)</p>
-<p><img src="https://github.com/RatmirGR/NewsParsing/blob/main/1.png"  width="600" height="600"/></p>
+<p><img src="https://github.com/RatmirGR/NewsParsing/blob/main/1.png"  width="500" height="500"/></p>
 
 <b>4)</b> После запуска приложения нужно сделать post-запрос, передав json
   <p>curl -X POST http://localhost:8080/load -H 'Content-Type: application/json' -d '{ "date": "2022-11-11"}'</p>
