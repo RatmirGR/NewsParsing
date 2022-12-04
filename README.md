@@ -18,9 +18,10 @@
 или
   <ul>Воспользоваться Postman:</ul>
     <li> указав в url: http://localhost:8080/load</li>
-    <li> указав в разделе Headers:</li>
-        Content-Type: application/json
-        Accept: application/json
+    <li> указав в разделе Headers:
+        <p>Content-Type: application/json</p>
+        <p>Accept: application/json</p>
+    </li>
     <li> указав в разделе Body json: { "date": "2022-11-11"}</li>
 
 
