@@ -6,7 +6,7 @@
 <b>1)</b> Скачать проект
 
 <b>2)</b> Зайти в проект и выполнить команду: ./mvnw package
-<p><img src="https://github.com/RatmirGR/NewsParsing/blob/main/2.png"/></p>
+<p><img src="https://github.com/RatmirGR/NewsParsing/blob/main/2.png" width="500" height="500"/></p>
 <p>(Примечание: Если maven не установлен, то нужно сначала запустить скрипт для установки maven команда: mvnw (для Linux/Mac) или mvnw.cmd (для Windows))</p>
 
 <b>3)</b> Зайти в созданный пакет target и выполнить команду: java -jar webservice-0.0.1-SNAPSHOT.jar
