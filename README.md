@@ -16,14 +16,14 @@
 <b>4)</b> После запуска приложения нужно сделать post-запрос, передав json
   <p>curl -X POST http://localhost:8080/load -H 'Content-Type: application/json' -d '{ "date": "2022-11-11"}'</p>
 или
-<ol>Воспользоваться Postman:
+<ul>Воспользоваться Postman:
   <li> указав в url: http://localhost:8080/load</li>
    <li> указав в разделе Headers:
         <p>Content-Type: application/json</p>
         <p>Accept: application/json</p>
    </li>
    <li> указав в разделе Body json: { "date": "2022-11-11"}</li>
-</ol>
+</ul>
 
 
 <b>5)</b> Для получение данных в формате json, нужно сделать get-запрос
