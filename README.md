@@ -14,7 +14,6 @@
 
 <b>4)</b> После запуска приложения нужно сделать post-запрос в другом терминале, передав json
   <p>curl -X POST http://localhost:8080/load -H 'Content-Type: application/json' -d '{ "date": "2022-11-11"}'</p>
-  <p>Ответом будет "Ok" - это значит, что по переданной дате был произведен парсинг сайта https://news.ycombinator.com/, а полученный список новостей добавлен в базу данных</p>
 <p>или</p>
 <ul><b>Воспользоваться Postman:</b>
     <li> указав в url: http://localhost:8080/load</li>
@@ -23,6 +22,7 @@
     <li> указав в разделе Body json: { "date": "2022-11-11"}</li>
 </ul>
 <p><img src="https://github.com/RatmirGR/NewsParsing/blob/main/1.png"  width="500" height="500"/></p>
+<p>Ответом будет "Ok" - это значит, что по переданной дате был произведен парсинг сайта https://news.ycombinator.com/, а полученный список новостей добавлен в базу данных</p>
 
 <b>5)</b> Для получение данных в формате json, нужно сделать get-запрос
   <p>curl -X GET 'http://localhost:8080/info?date=2022-11-11'</p>
