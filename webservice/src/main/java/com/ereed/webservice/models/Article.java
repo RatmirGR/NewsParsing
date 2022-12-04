@@ -1,5 +1,6 @@
 package com.ereed.webservice.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,7 +34,9 @@ public class Article {
     @Column(name = "number_of_comments")
     private int numberOfComments;
 
-    @Column(name = "date_publication")
-    private String datePublication;
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "date_id", referencedColumnName = "id")
+    private Date datePublication;
 
 }

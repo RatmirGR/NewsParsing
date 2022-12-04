@@ -34,6 +34,6 @@ public class ArticlesService {
         if (foundDate.isEmpty())
             throw new ArticleNotFoundException();
 
-        return articlesRepository.findByDatePublication(strDate);
+        return articlesRepository.findByDatePublication(foundDate.get());
     }
 }

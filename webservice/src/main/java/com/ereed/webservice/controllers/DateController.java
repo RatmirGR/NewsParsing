@@ -33,19 +33,16 @@ public class DateController {
     @PostMapping("/load")
     public ResponseEntity<HttpStatus> load(@RequestBody String strDate) throws JsonProcessingException {
 
-        /* распарсиваем полученный json*/
         ObjectMapper mapper = new ObjectMapper();
         Date datePublication = mapper.readValue(strDate, Date.class);
         dateService.save(datePublication);
 
-
-        /* парсинг по указанной дате и получения списка новостей*/
         Parsing parsing = new Parsing(datePublication.getDate());
         parsing.parse();
         List<Article> articleList = parsing.getListArticles();
 
         for (Article article: articleList) {
-            article.setDatePublication(datePublication.getDate());
+            article.setDatePublication(datePublication);
             articlesService.save(article);
         }
 
