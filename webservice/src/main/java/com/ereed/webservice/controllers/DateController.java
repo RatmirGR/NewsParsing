@@ -36,30 +36,18 @@ public class DateController {
         /* распарсиваем полученный json*/
         ObjectMapper mapper = new ObjectMapper();
         Date datePublication = mapper.readValue(strDate, Date.class);
-   //     dateService.save(datePublication);
+        dateService.save(datePublication);
 
 
         /* парсинг по указанной дате и получения списка новостей*/
         Parsing parsing = new Parsing(datePublication.getDate());
         parsing.parse();
+        List<Article> articleList = parsing.getListArticles();
 
-
-//        List<Article> articleList = parsing.getListArticles();
-//        Article article;
-//        for (int i = 1; i <= 2; i++) {
-//            article = new Article();
-//            article.setArticleTitle("title "+i);
-//            article.setLinkToArticle("link article "+i);
-//            article.setLinkToComments("link comments "+i);
-//            article.setScore(10*i);
-//            article.setNumberOfComments(100*i);
-//            article.setDatePublication(datePublication.getDate());
-//            articleList.add(article);
-//        }
-
-//        for (Article article1: articleList) {
-//            articlesService.save(article1);
-//        }
+        for (Article article: articleList) {
+            article.setDatePublication(datePublication.getDate());
+            articlesService.save(article);
+        }
 
         return ResponseEntity.ok(HttpStatus.OK);
     }

@@ -24,10 +24,12 @@ public class DateService {
     @Transactional
     public void save(Date date) throws DateDuplicateException, DateInvalidException {
 
+        /* проверяем, чтобы формат даты соответствовал yyyy-MM-dd*/
         if (!date.getDate().matches("^\\d{4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])$"))
             throw new DateInvalidException();
 
         Optional<Date> foundDate = dateRepository.findByDate(date.getDate());
+        /* проверяем, чтобы не было дубликатов дат*/
         if (foundDate.isPresent())
             throw new DateDuplicateException();
         dateRepository.save(date);
