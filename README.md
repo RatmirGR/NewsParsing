@@ -7,21 +7,21 @@
 
 <b>2)</b> Зайти в проект и выполнить команду: ./mvnw package
 [фото]
-(Примечание: Если maven не установлен, то нужно сначала запустить скрипт для установки maven команда: mvnw (для Linux/Mac) или mvnw.cmd (для Windows))
+<p>(Примечание: Если maven не установлен, то нужно сначала запустить скрипт для установки maven команда: mvnw (для Linux/Mac) или mvnw.cmd (для Windows))</p>
 
 <b>3)</b> Зайти в созданный пакет target и выполнить команду: java -jar webservice-0.0.1-SNAPSHOT.jar
-(Примечание: Приложение прослушивает порт 8080, поэтому нужно закрыть приложение, которое использует этот порт)
+<p>(Примечание: Приложение прослушивает порт 8080, поэтому нужно закрыть приложение, которое использует этот порт)</p>
 [фото]
 
 <b>4)</b> После запуска приложения нужно сделать post-запрос, передав json
-  curl -X POST http://localhost:8080/load -H 'Content-Type: application/json' -d '{ "date": "2022-11-11"}'
+  <p>curl -X POST http://localhost:8080/load -H 'Content-Type: application/json' -d '{ "date": "2022-11-11"}'</p>
 или
-  Воспользоваться Postman:
-    - указав в url: http://localhost:8080/load
-    - указав в разделе Headers:
+  <ul>Воспользоваться Postman:</ul>
+    <li> указав в url: http://localhost:8080/load</li>
+    <li> указав в разделе Headers:</li>
         Content-Type: application/json
         Accept: application/json
-    - указав в разделе Body json: { "date": "2022-11-11"}
+    <li> указав в разделе Body json: { "date": "2022-11-11"}</li>
 
 
 <b>5)</b> Для получение данных в формате json, нужно сделать get-запрос
