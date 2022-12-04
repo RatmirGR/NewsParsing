@@ -28,7 +28,7 @@
   <p>curl -X GET 'http://localhost:8080/info?date=2022-11-11'</p>
 <p>или</p>
   <ul><b>Воспользоваться Postman:</b>
-    <li> http://localhost:8080/info?date=2022-11-15</li>
+    <li>http://localhost:8080/info?date=2022-11-15</li>
   </ul>
 
 
