@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static com.ereed.webservice.utils.JSONValidator.getStringJSONValid;
+
 
 @RestController
 public class DateController {
@@ -31,10 +33,16 @@ public class DateController {
     }
 
     @PostMapping("/load")
-    public ResponseEntity<HttpStatus> load(@RequestBody String strDate) throws JsonProcessingException {
+    public ResponseEntity<HttpStatus> load(@RequestBody(required = false) String strDate) {
 
         ObjectMapper mapper = new ObjectMapper();
-        Date datePublication = mapper.readValue(strDate, Date.class);
+        Date datePublication;
+        try {
+            strDate = getStringJSONValid(strDate);
+            datePublication = mapper.readValue(strDate, Date.class);
+        } catch (JsonProcessingException e) {
+            throw new DateInvalidException();
+        }
         dateService.save(datePublication);
 
         Parsing parsing = new Parsing(datePublication.getDate());
@@ -53,12 +61,12 @@ public class DateController {
     @ExceptionHandler
     private ResponseEntity<DateErrorResponse> handleDuplicateException(DateDuplicateException ignore){
         DateErrorResponse response = new DateErrorResponse("Date already exists");
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler
     private ResponseEntity<DateErrorResponse> handleEmptyException(DateInvalidException ignore){
-        DateErrorResponse response = new DateErrorResponse("Date invalid");
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        DateErrorResponse response = new DateErrorResponse("Data invalid");
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 }
