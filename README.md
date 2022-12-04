@@ -6,12 +6,12 @@
 <b>1)</b> Скачать проект
 
 <b>2)</b> Зайти в проект и выполнить команду: ./mvnw package
-<p><img src="https://github.com/RatmirGR/NewsParsing/blob/main/2.png" width="400" height="400"/></p>
+<p><img src="https://github.com/RatmirGR/NewsParsing/blob/main/2.png" width="300" height="400"/></p>
 <p>(Примечание: Если maven не установлен, то нужно сначала запустить скрипт для установки maven команда: mvnw (для Linux/Mac) или mvnw.cmd (для Windows))</p>
 
 <b>3)</b> Зайти в созданный пакет target и выполнить команду: java -jar webservice-0.0.1-SNAPSHOT.jar
 <p>(Примечание: Приложение прослушивает порт 8080, поэтому нужно закрыть приложение, которое использует этот порт)</p>
-<p><img src="https://github.com/RatmirGR/NewsParsing/blob/main/1.png" width="400" height="400"/></p>
+<p><img src="https://github.com/RatmirGR/NewsParsing/blob/main/1.png" width="300" height="400"/></p>
 
 <b>4)</b> После запуска приложения нужно сделать post-запрос, передав json
   <p>curl -X POST http://localhost:8080/load -H 'Content-Type: application/json' -d '{ "date": "2022-11-11"}'</p>
